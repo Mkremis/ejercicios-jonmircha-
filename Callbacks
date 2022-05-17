@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Curso JavaScript: 46. Callbacks - #jonmircha</title>
+</head>
+<body>
+<ul id = "ul"></ul>
+</body>
+
+<script>
+var ul = document.getElementById("ul");
+var list;
+
+function cuadradoCallback(value, callback){
+ list = document.createElement("li");
+ ul.appendChild(list).innerHTML = "Await...";
+ setTimeout( () =>{
+  callback (value, value * value);
+   },1000) // end of setTimeout
+}
+
+cuadradoCallback(1, (value, result) =>{
+ ul.appendChild(list).innerHTML = `Callback value: "${value}", result: "${result}"`;
+  cuadradoCallback(2, (value, result) =>{
+   ul.appendChild(list).innerHTML = `Callback value: "${value}", result: "${result}"`;
+    cuadradoCallback(3, (value, result) =>{
+     ul.appendChild(list).innerHTML = `Callback value: "${value}", result: "${result}"`;				
+      cuadradoCallback(4, (value, result) =>{
+       ul.appendChild(list).innerHTML = `Callback value: "${value}", result: "${result}"`;
+        cuadradoCallback(5, (value, result) =>{
+         ul.appendChild(list).innerHTML = `Callback value: "${value}", result: "${result}"`;
+       });
+     });
+   });
+ });	
+});
+</script>
+
+</html>
